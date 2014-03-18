@@ -314,15 +314,375 @@ hr {
     font-weight: bold;
     z-index: 10;
     font-size: 55px; }
+  
+  /*
+    The scheme is that successive tile values
+    share one color. The upper-left/lower-right
+    diagonal is the color that overlaps with
+    the following value, while the lower-left/
+    upper-right diagonal is the color that
+    overlaps with the preceding value. This way,
+    if two adjacent tiles have any surfaces that
+    are the same color on both tiles, they can
+    merge.
+
+    The background color is the upper-left/
+    lower-right diagonal color, while the 
+    non-transparent  colors in the background-image 
+    property are the lower-left/upper-right diagonal 
+    color. All of the non-transparent colors in the
+    background-image property must be the same in
+    order for the checkerboard pattern to work.
+  */
+  .tile.tile-1 .tile-inner {
+    background: #ede0c8;
+    background-image:
+      -moz-linear-gradient(45deg, #ffffff 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #ffffff 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #ffffff 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #ffffff), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #ffffff), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #ffffff)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #ffffff));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
   .tile.tile-2 .tile-inner {
+    background: #f2b179;
+    background-image:
+      -moz-linear-gradient(45deg, #ede0c8 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #ede0c8 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #ede0c8 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #ede0c8 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #ede0c8), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #ede0c8), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #ede0c8)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #ede0c8));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-3 .tile-inner {
+    background: #f59563;
+    background-image:
+      -moz-linear-gradient(45deg, #f2b179 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f2b179 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f2b179 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f2b179 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f2b179), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f2b179), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f2b179)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f2b179));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-5 .tile-inner {
+    background: #f67c5f;
+    background-image:
+      -moz-linear-gradient(45deg, #f59563 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f59563 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f59563 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f59563 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f59563), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f59563), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f59563)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f59563));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-8 .tile-inner {
+    background: #f65e3b;
+    background-image:
+      -moz-linear-gradient(45deg, #f67c5f 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f67c5f 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f67c5f 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f67c5f 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f67c5f), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f67c5f), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f67c5f)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f67c5f));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-13 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-21 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-34 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-55 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-89 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-144 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-233 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-377 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-610 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-987 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-1597 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  .tile.tile-2584 .tile-inner {
+    background: #edcf72;
+    background-image:
+      -moz-linear-gradient(45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #f65e3b 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #f65e3b 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #f65e3b 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f65e3b), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f65e3b)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f65e3b));
+
+    -moz-background-size:107px 107px;
+    background-size:107px 107px;
+    -webkit-background-size:107px 107px; /* override value for shitty webkit */
+    
+    background-position:0 0, 53.5px 0, 53.5px -53.5px, 0px 53.5px;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+/*  .tile.tile-2 .tile-inner {
     background: #eee4da;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }*/
   .tile.tile-4 .tile-inner {
     background: #ede0c8;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
-  .tile.tile-8 .tile-inner {
+/*  .tile.tile-8 .tile-inner {
     color: #f9f6f2;
-    background: #f2b179; }
+    background: #f2b179; }*/
   .tile.tile-16 .tile-inner {
     color: #f9f6f2;
     background: #f59563; }

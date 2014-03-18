@@ -3,7 +3,7 @@ F<sub>i</sub> = F<sub>i-1</sub> + F<sub>i-2</sub>
 
 A small fork of [2048](http://gabrielecirulli.github.io/2048/), which is a clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
 
-Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
+Made just for fun. [Play it here!](http://joshlf13.github.io/2048-Fibonacci/)
 
 ### Screenshot
 

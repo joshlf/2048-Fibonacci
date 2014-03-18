@@ -35,7 +35,8 @@ GameManager.prototype.isGameTerminated = function () {
 
 // Set up the game
 GameManager.prototype.setup = function () {
-  this.grid        = new Grid(this.size);
+  this.grid            = new Grid(this.size);
+  this.adjacentNumbers = getAdjacentNumbers();
 
   this.score       = 0;
   this.over        = false;
@@ -243,23 +244,32 @@ GameManager.prototype.tileMatchesAvailable = function () {
   return false;
 };
 
-GameManager.prototype.adjacentNumbers = {
-  1: 2,
-  2: 3,
-  3: 5,
-  5: 8,
-  8: 13,
-  13: 21,
-  21: 34,
-  34: 55,
-  55: 89,
-  89: 144,
-  144: 233,
-  233: 377,
-  377: 610,
-  610: 987,
-  987: 1597,
-  1597: 2584
+// Place this in its own function so that
+// modifying the return value doesn't modify
+// other instances of the return value (ie,
+// in contrast to if this was assigned as
+// a prototype variable, in which case all
+// instances of GameManager would have a
+// reference to the same object).
+function getAdjacentNumbers() {
+   return {
+    1: 2,
+    2: 3,
+    3: 5,
+    5: 8,
+    8: 13,
+    13: 21,
+    21: 34,
+    34: 55,
+    55: 89,
+    89: 144,
+    144: 233,
+    233: 377,
+    377: 610,
+    610: 987,
+    987: 1597,
+    1597: 2584
+  };
 }
 
 GameManager.prototype.canMerge = function(first, second) {

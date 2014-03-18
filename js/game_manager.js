@@ -36,7 +36,6 @@ GameManager.prototype.isGameTerminated = function () {
 // Set up the game
 GameManager.prototype.setup = function () {
   this.grid            = new Grid(this.size);
-  this.adjacentNumbers = getAdjacentNumbers();
 
   this.score       = 0;
   this.over        = false;
@@ -61,7 +60,7 @@ GameManager.prototype.addStartTiles = function () {
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
     var value = 1;
-    var tile = new Tile(this.grid.randomAvailableCell(), value);
+    var tile = new Tile(this.grid.randomAvailableCell(), value, 0);
 
     this.grid.insertTile(tile);
   }
@@ -127,10 +126,10 @@ GameManager.prototype.move = function (direction) {
         var next      = self.grid.cellContent(positions.next);
 
         // Only one merger per row traversal?
-        if (next && self.canMerge(tile.value, next.value) && !next.mergedFrom) {
+        if (next && self.canMerge(tile, next) && !next.mergedFrom) {
         // if (next && next.value === tile.value && !next.mergedFrom) {
           // var merged = new Tile(positions.next, tile.value * 2);
-          var merged = new Tile(positions.next, tile.value + next.value);
+          var merged = new Tile(positions.next, tile.value + next.value, Math.max(tile.index, next.index) + 1);
           merged.mergedFrom = [tile, next];
 
           self.grid.insertTile(merged);
@@ -232,7 +231,7 @@ GameManager.prototype.tileMatchesAvailable = function () {
 
           var other  = self.grid.cellContent(cell);
 
-          if (other && this.canMerge(tile.value, other.value)) {
+          if (other && this.canMerge(tile, other)) {
           // if (other && other.value === tile.value) {
             return true; // These two tiles can be merged
           }
@@ -244,39 +243,8 @@ GameManager.prototype.tileMatchesAvailable = function () {
   return false;
 };
 
-// Place this in its own function so that
-// modifying the return value doesn't modify
-// other instances of the return value (ie,
-// in contrast to if this was assigned as
-// a prototype variable, in which case all
-// instances of GameManager would have a
-// reference to the same object).
-function getAdjacentNumbers() {
-   return {
-    1: 2,
-    2: 3,
-    3: 5,
-    5: 8,
-    8: 13,
-    13: 21,
-    21: 34,
-    34: 55,
-    55: 89,
-    89: 144,
-    144: 233,
-    233: 377,
-    377: 610,
-    610: 987,
-    987: 1597,
-    1597: 2584
-  };
-}
-
 GameManager.prototype.canMerge = function(first, second) {
-  if (first < second)
-    return (first === 1 && second === 1) || this.adjacentNumbers[first] === second
-  else
-    return (first === 1 && second === 1) || this.adjacentNumbers[second] === first
+  return (first.value === 1 && second.value === 1) || Math.abs(first.index - second.index) === 1
 }
 
 GameManager.prototype.positionsEqual = function (first, second) {
